@@ -7,6 +7,25 @@ This is ther backend side of SmartBrain project, I use Express framework to esta
 - Server : Express
 - Database : PostgreSQL (Knex.js to connect)
 
+## How to use
+1. Set up
+- Clone this project
+- `package.json` store the info of package I use
+- Run `npm install` in the extracted folder
+
+2. Get the API key
+Due to security concern, I set the API key
+- Go to [clarifai.com](https://www.clarifai.com/) to register a account and get the face detection API key
+- Go to `image.js` file, change the apiKey into yours
+```javascript
+// You must add your own API key here from Clarifai.
+const app = new Clarifai.App({
+    apiKey: process.env.API_CLARIFAI
+});
+```
+- Run `npm start` to view the project
+
+
 ## RESTful API
 In the `server.js` file, you can see 5 API calls, and I wrote them in the `controllers` file
 
@@ -27,9 +46,5 @@ app.put('/image',(req,res) => {entriesHandler(req,res,db)})
 app.post('/imageurl',(req,res) => {apiCallHandler(req,res)})
 ```
 
-## How to use
-1. Set up
-- Clone this project
-- `package.json` store the info of package I use
-- Run `npm install` in the extracted folder
-- Run `npm start` to view the project
+## Table Structure in Database
+
