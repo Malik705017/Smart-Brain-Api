@@ -51,16 +51,40 @@ app.post('/imageurl',(req,res) => {apiCallHandler(req,res)})
 There are 2 tables in database:
 - users: store the basic info of users
 
+```
  id | name  |        email        | entries |         joined          
 ----+-------+---------------------+---------+-------------------------
   1 | brian | brian@gmail.com     |       0 | 2021-03-02 14:40:52.618
   2 | david | fhh1482@gmail.com   |       1 | 2021-03-02 14:42:04.472
   3 | brian | brian0205@gmail.com |       2 | 2021-03-02 15:01:28.642
+```
+
+this table is created by this SQL query:
+```sql
+CREATE TABLE users (
+	id serial PRIMARY KEY,
+	name varchar(100),
+	email text UNIQUE NOT NULL,
+	entries BIGINT DEFAULT 0,
+	joined TIMESTAMP NOT NULL
+);
+```
 
 - logins: store the security info of users
 
+```
  id |                             hash                             |        email        
 ----+--------------------------------------------------------------+---------------------
   1 | $2b$10$bmEfEMozXvK1RDf.9LQb8OUj5P6glU1PRHS2aw9UkTUnlIxKD/Kg2 | brian@gmail.com
   2 | $2b$10$ntHZPMlWvoRVT6HhQqM0WezOZSyb7UsNRqJtA/dUm5SufSJe1A1xu | fhh1482@gmail.com
   3 | $2b$10$7aS0jdCXX6I8eIv0QrnOguDBXH0eQ9AeD.5kRDiTMOOsRDG3WL5IW | brian0205@gmail.com
+```
+
+this table is created by this SQL query:
+```sql
+CREATE TABLE login (
+	id serial PRIMARY KEY,
+	hash varchar(100) NOT NULL,
+	email text UNIQUE NOT NULL
+);
+```
