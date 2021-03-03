@@ -14,7 +14,7 @@ This is ther backend side of SmartBrain project, I use Express framework to esta
 - Run `npm install` in the extracted folder
 
 2. Get the API key
-Due to security concern, I set the API key
+> Due to security concern, I set the API key in the cloud, if you want to run the server in localhost, please set your key.
 - Go to [clarifai.com](https://www.clarifai.com/) to register a account and get the face detection API key
 - Go to `image.js` file, change the apiKey into yours
 ```javascript
