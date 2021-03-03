@@ -10,7 +10,7 @@ This is ther backend side of SmartBrain project, I use Express framework to esta
 ## RESTful API
 In the `server.js` file, you can see 5 API calls, and I wrote them in the `controllers` file
 
-```javascript=
+```javascript
 // 登入，回傳 user 基本資訊（id, name, email, entires, joined）
 app.post('/signin',(req,res) => {signinHandler(req,res,bcrypt,db)})
 
